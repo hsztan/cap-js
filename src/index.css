@@ -1,9 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Anek Tamil', sans-serif;
 }
 
-h1 {
-  color: blue;
+ul {
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#header nav {
+  margin: 3% 5%;
+  display: flex;
+}
+
+#header nav ul {
+  display: flex;
+  gap: 5%;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 70%;
+}
+
+#header nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin-right: 10%;
+}
+
+.counter {
+  padding: 0 3px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+footer hr {
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+footer p {
+  font-size: 0.8rem;
+  padding: 1.3rem;
 }
