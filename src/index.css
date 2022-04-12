@@ -128,3 +128,12 @@ width: 60%;
 #comment-container form button{
   padding: 5px 10px;
 }
+
+#close{
+  width: 5vw;
+  height: 5vw;
+  background-image: url('./images/icons/close.svg');
+  position: absolute;
+  top: 2%;
+  left: 90%;
+}
