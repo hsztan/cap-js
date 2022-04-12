@@ -54,9 +54,6 @@ a:hover {
 
 footer {
   width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
 footer hr {
@@ -152,3 +149,42 @@ footer p {
   top: 2%;
   left: 90%;
 }
+
+/* Main card styles */
+
+.btn {
+  width: 100px;
+}
+
+main {
+  margin: 2rem 0;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 1rem;
+  width: 100vw;
+  height: 100%;
+}
+
+.show {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.show img {
+  width: 100px;
+}
+
+figcaption {
+  display: flex;
+  text-align: center;
+}
+
+figcaption .likes {
+  font-size: 0.8rem;
+}
+
