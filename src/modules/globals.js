@@ -5,5 +5,5 @@ export const involvmentEndpoints = {
 };
 
 export const showEndpoints = {
-  base: 'https://api.tvmaze.com/search/shows',
+  shows: 'https://api.tvmaze.com/shows',
 };
