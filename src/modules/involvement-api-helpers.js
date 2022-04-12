@@ -19,7 +19,12 @@ export const postLike = async (endpoint, id) => {
   try {
     response = await fetch(endpoint, {
       method: 'POST',
-      body: JSON.stringify({ item_id: id }),
+      body: JSON.stringify({
+        item_id: id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } catch (error) {
     return error.message;

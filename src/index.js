@@ -1,5 +1,5 @@
 import './index.css';
-import { displayTVShows, displayLikes } from './modules/api-dom';
+import startApp from './modules/api-dom';
+import { postLike } from './modules/involvement-api-helpers';
 
-displayTVShows();
-displayLikes();
+startApp();

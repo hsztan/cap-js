@@ -1,17 +1,16 @@
 import { shows, likes, showEndpoints, involvementEndpoints } from './globals';
 import { getShows } from './shows-api-helpers';
-import { getLikes } from './involvement-api-helpers';
+import { getLikes, postLike } from './involvement-api-helpers';
 
 const mainContainer = document.querySelector('main');
 
-export const setShows = async () => {
+const setShows = async () => {
   const allShows = await getShows(showEndpoints.shows, [1, 5, 7, 3, 6, 9]);
   shows.push(...allShows);
 };
 
-export const displayTVShows = async () => {
+const displayTVShows = async () => {
   await setShows();
-  console.log(shows);
   // create artcile element
   shows.forEach((show, i) => {
     const articleElem = document.createElement('article');
@@ -23,7 +22,7 @@ export const displayTVShows = async () => {
         <figcaption>
           <p>${show.name}</p>
           <p>
-            <span><i class="fa-solid fa-heart"></i></span><br /><span
+            <span class="hearts"><i data-id="${show.id}" class="fa-solid fa-heart"></i></span><br /><span
               class="likes" id="like-${show.id}"
               >5 likes</span
             >
@@ -35,7 +34,7 @@ export const displayTVShows = async () => {
   });
 };
 
-export const displayLikes = async () => {
+const displayLikes = async () => {
   const data = await getLikes(involvementEndpoints.likes);
   likes.push(...data);
   // search containers for their corresponding id and set their value
@@ -45,4 +44,29 @@ export const displayLikes = async () => {
       likeContainer.innerText = `${like.likes} likes`;
     }
   });
+};
+
+const handleLike = async (eve) => {
+  const likeElem = eve.target;
+  const tvShowID = likeElem.dataset.id;
+  await postLike(involvementEndpoints.likes, tvShowID);
+  displayLikes();
+};
+
+const createLikes = async () => {
+  const likesContainers = document.querySelectorAll('.hearts');
+  likesContainers.forEach((likesContainer) => {
+    likesContainer.addEventListener('click', handleLike);
+  });
+};
+
+export default async () => {
+  try {
+    await displayTVShows();
+    displayLikes();
+    createLikes();
+  } catch (error) {
+    return error.message;
+  }
+  return true;
 };
