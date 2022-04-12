@@ -1,6 +1,6 @@
 import { shows, showEndpoints } from './globals';
 import { getShows } from './shows-api-helpers';
-
+import { commentButtonClick } from './helpers-api-dom'
 const mainContainer = document.querySelector('main');
 
 export const setShows = async () => {
@@ -32,4 +32,7 @@ export const displayTVShows = async () => {
     `;
     mainContainer.appendChild(articleElem);
   });
+  const buttons = Array.from(document.querySelectorAll('.btn'));
+  buttons.forEach(button => commentButtonClick(button))
+  console.log(buttons);
 };

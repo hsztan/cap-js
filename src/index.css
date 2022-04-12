@@ -73,7 +73,6 @@ footer p {
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.747);
-  display: none;
 }
 
 #comment-container {
@@ -141,7 +140,7 @@ footer p {
   padding: 5px 10px;
 }
 
-#close {
+#close-popup {
   width: 5vw;
   height: 5vw;
   background-image: url('./images/icons/close.svg');
@@ -186,5 +185,9 @@ figcaption {
 
 figcaption .likes {
   font-size: 0.8rem;
+}
+
+.hide{
+  display: none;
 }
 
