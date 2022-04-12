@@ -33,6 +33,5 @@ export const displayTVShows = async () => {
     mainContainer.appendChild(articleElem);
   });
   const buttons = Array.from(document.querySelectorAll('.btn'));
-  buttons.forEach(button => commentButtonClick(button))
-  console.log(buttons);
+  buttons.forEach(button => commentButtonClick(button));
 };
