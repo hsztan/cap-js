@@ -76,8 +76,7 @@ footer p {
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.747);
-
-  /* display: none; */
+  display: none;
 }
 
 #comment-container {
