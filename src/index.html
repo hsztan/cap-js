@@ -38,13 +38,13 @@
         License
       </p>
     </footer> -->
-    <div id="comment">
-      <article id="image">
+    <div id="comment-container">
+      <article id="movie-cover">
         <img
           src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABV99B5zpr_y7upKClhTM151TL4p1qVwtk6SauymQ5bZeH5Vyul0ZlZWx3ATh1CtzAf3TZS5YpuRIDOl_qbj-N2YZ-e8O.jpg?r=590"
           alt="movie-image"
         />
-        <div class="caption">movie caption</div>
+        <p class="caption">movie caption</p>
       </article>
       <section id="detail">
         <ul>
@@ -66,14 +66,18 @@
         <p>03/11/2021 Mia: I love</p>
       </section>
       <form action="#" method="post">
-        <input type="text" id="name" name="name" placeholder="Your name" />
-        <input
-          type="textarea"
-          id="comment"
-          name="comment"
-          placeholder="Your insight"
-        />
-        <input type="submit" value="Submit" />
+        <fieldset>
+          <legend>Add a comment</legend>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+          <textarea
+            id="comment"
+            name="comment"
+            placeholder="Your insight"
+            rows="4"
+          />
+          </textarea>
+          <button type="submit" value="comment">comment</button>
+        </fieldset>
       </form>
       <span id="close"></span>
     </div>
