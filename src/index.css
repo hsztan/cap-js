@@ -69,78 +69,83 @@ footer p {
   padding: 1.3rem;
 }
 
-#comment-popup{
+#comment-popup {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.747);
+
   /* display: none; */
 }
 
-#comment-container{
+#comment-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid black;
-  margin: auto;
   padding: 20px;
   margin: 3% 8%;
   gap: 2vh;
   background: white;
 }
-#movie-cover{
-width: 60%;
+
+#movie-cover {
+  width: 60%;
 }
-#movie-cover img{
+
+#movie-cover img {
   width: 100%;
 }
+
 #movie-cover .caption {
   font-size: 1.7rem;
   text-align: center;
 }
 
-#detail{
-  display: flex;  
+#detail {
+  display: flex;
   gap: 5%;
 }
 
-#detail ul li{
+#detail ul li {
   min-width: max-content;
 }
 
-#comment{
+#comment {
   margin: 2vh 0;
 }
-#comment h1{
+
+#comment h1 {
   text-align: center;
   margin: 2vh 0;
 }
-#comment-container form fieldset{
+
+#comment-container form fieldset {
   display: flex;
   flex-direction: column;
   border: none;
   text-align: center;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
-#comment-container form legend{
+#comment-container form legend {
   margin: 5px 0;
   font-size: 1.5rem;
   font-weight: bolder;
 }
 
-#comment-container form input{
+#comment-container form input {
   font-size: 1.1rem;
 }
 
-#comment-container form button{
+#comment-container form button {
   padding: 5px 10px;
 }
 
-#close{
+#close {
   width: 5vw;
   height: 5vw;
   background-image: url('./images/icons/close.svg');

@@ -1,6 +1,6 @@
 export const getShows = async () => {
   try {
-    //TODO
+    // TODO
     const showsIds = [];
     const fetches = [];
     // Resolve all fetches
