@@ -1,7 +1,9 @@
 export const shows = [];
-const involvementID = 'kRRjieBzj8pkjFUnklmh';
+export const likes = [];
+// const involvementID = 'kRRjieBzj8pkjFUnklmh';
+const involvementID = 'LpjkxbOoouO6w5jth5ro';
 
-export const involvmentEndpoints = {
+export const involvementEndpoints = {
   likes: `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${involvementID}/likes`,
 };
 

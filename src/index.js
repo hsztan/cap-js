@@ -1,4 +1,5 @@
 import './index.css';
-import { displayTVShows } from './modules/api-dom';
+import { displayTVShows, displayLikes } from './modules/api-dom';
 
 displayTVShows();
+displayLikes();

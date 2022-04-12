@@ -1,5 +1,6 @@
-import { shows, showEndpoints } from './globals';
+import { shows, likes, showEndpoints, involvementEndpoints } from './globals';
 import { getShows } from './shows-api-helpers';
+import { getLikes } from './involvement-api-helpers';
 
 const mainContainer = document.querySelector('main');
 
@@ -23,7 +24,7 @@ export const displayTVShows = async () => {
           <p>${show.name}</p>
           <p>
             <span><i class="fa-solid fa-heart"></i></span><br /><span
-              class="likes"
+              class="likes" id="like-${show.id}"
               >5 likes</span
             >
           </p>
@@ -31,5 +32,17 @@ export const displayTVShows = async () => {
         <button class="btn" data-id="${i}" type="button">Comments</button>
     `;
     mainContainer.appendChild(articleElem);
+  });
+};
+
+export const displayLikes = async () => {
+  const data = await getLikes(involvementEndpoints.likes);
+  likes.push(...data);
+  // search containers for their corresponding id and set their value
+  likes.forEach((like) => {
+    const likeContainer = document.querySelector(`#like-${like.item_id}`);
+    if (likeContainer) {
+      likeContainer.innerText = `${like.likes} likes`;
+    }
   });
 };
