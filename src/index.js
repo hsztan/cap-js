@@ -1,4 +1,4 @@
 import './index.css';
-import { displayShows } from './modules/api-dom';
+import { displayTVShows } from './modules/api-dom';
 
-displayShows();
+displayTVShows();
