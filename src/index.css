@@ -69,6 +69,16 @@ footer p {
   padding: 1.3rem;
 }
 
+#comment-popup{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.747);
+  /* display: none; */
+}
+
 #comment-container{
   position: relative;
   display: flex;
@@ -79,6 +89,7 @@ footer p {
   padding: 20px;
   margin: 3% 8%;
   gap: 2vh;
+  background: white;
 }
 #movie-cover{
 width: 60%;
