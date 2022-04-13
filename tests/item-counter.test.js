@@ -1,7 +1,7 @@
 // import getShows from '../src/modules/shows-api-helpers';
 import * as fs from 'fs';
 import mockGetShows from '../src/modules/shows-api-helpers';
-import mockData from '../src/modules/mock-data';
+import mockData from './mock-data';
 import { shows } from '../src/modules/globals';
 import { displayItemsCount, displayTVShows } from '../src/modules/api-dom';
 
