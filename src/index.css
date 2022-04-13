@@ -49,7 +49,7 @@ a:hover {
 .counter {
   padding: 0 3px;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 footer {
@@ -189,7 +189,6 @@ figcaption .likes {
   font-size: 0.8rem;
 }
 
-.hide{
+.hide {
   display: none;
 }
-
