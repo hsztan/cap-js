@@ -1,6 +1,7 @@
-import { shows } from './globals';
-export const commentButtonClick = button => {
-  button.addEventListener('click', e => {
+import { shows,involvmentEndpoints } from './globals';
+import { getComments } from './involvement-api-helpers';
+export const commentButtonClick =  button => {
+  button.addEventListener('click', async e => {
     const show = shows[Number(button.dataset.id)];
     const commentContainer = document.getElementById('comment-popup');
     const closePopup = document.getElementById('close-popup');
@@ -23,6 +24,8 @@ export const commentButtonClick = button => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     })
-    console.log(shows[Number(button.dataset.id)]);
+    const data=await getComments(involvmentEndpoints.base,'Ar2NMDv10jZ3pBmgm0tK',show.id);
+    console.log(data);
+    // console.log(shows[Number(button.dataset.id)]);
   });
 }

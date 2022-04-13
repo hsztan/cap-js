@@ -3,9 +3,13 @@ export const getLikes = async (id) => {
   } catch (error) {}
 };
 
-export const getComments = async (id) => {
+export const getComments = async (endPoint, appId, itemId) => {
   try {
-  } catch (error) {}
+    const comments=await fetch(`${endPoint}/apps/${appId}/comments?item_id=item1`);
+    return await comments.json();
+  } catch (error) {
+    return [];
+  }
 };
 
 export const postLike = async (id) => {
@@ -15,5 +19,7 @@ export const postLike = async (id) => {
 
 export const postComment = async (id) => {
   try {
+    const result=await fetch(`${endPoint}/apps/${appId}/comments/`);
+    console.log(result.text());
   } catch (error) {}
 };
