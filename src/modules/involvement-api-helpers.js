@@ -9,10 +9,10 @@ export const getLikes = async (endpoint) => {
   return data;
 };
 
-export const getComments = async (id) => {
-  try {
-  } catch (error) {}
-};
+// export const getComments = async (id) => {
+//   try {
+//   } catch (error) {}
+// };
 
 export const postLike = async (endpoint, id) => {
   let response;
@@ -32,7 +32,7 @@ export const postLike = async (endpoint, id) => {
   return response.ok;
 };
 
-export const postComment = async (id) => {
-  try {
-  } catch (error) {}
-};
+// export const postComment = async (id) => {
+//   try {
+//   } catch (error) {}
+// };

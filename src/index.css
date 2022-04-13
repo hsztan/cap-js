@@ -175,7 +175,7 @@ main {
   align-items: center;
 }
 
-.show img {
+.show .show-img {
   width: 100px;
 }
 
@@ -187,4 +187,3 @@ figcaption {
 figcaption .likes {
   font-size: 0.8rem;
 }
-

@@ -1,4 +1,6 @@
-import { shows, likes, showEndpoints, involvementEndpoints } from './globals';
+import {
+  shows, likes, showEndpoints, involvementEndpoints,
+} from './globals';
 import { getShows } from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
 
@@ -17,7 +19,7 @@ const displayTVShows = async () => {
     articleElem.classList.add('show');
     articleElem.innerHTML = `
        <figure>
-          <img src="${show.image.medium}" alt="picture" />
+          <img class="show-img" src="${show.image.medium}" alt="picture" />
         </figure>
         <figcaption>
           <p>${show.name}</p>
