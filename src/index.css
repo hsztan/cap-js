@@ -71,9 +71,7 @@ footer p {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.747);
-  display: none;
+  background: rgb(255, 255, 255);
 }
 
 #comment-container {
@@ -93,7 +91,10 @@ footer p {
 }
 
 #movie-cover img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 30vh;
+  margin: auto;
+  display: block;
 }
 
 #movie-cover .caption {
@@ -141,7 +142,7 @@ footer p {
   padding: 5px 10px;
 }
 
-#close {
+#close-popup {
   width: 5vw;
   height: 5vw;
   background-image: url('./images/icons/close.svg');
@@ -186,5 +187,9 @@ figcaption {
 
 figcaption .likes {
   font-size: 0.8rem;
+}
+
+.hide{
+  display: none;
 }
 
