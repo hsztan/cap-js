@@ -38,6 +38,12 @@ export const commentButtonClick = (button) => {
         "comment": "getting in-touch"
       });
     });
+    try {
+      const postResult = await getMovieComment(show.id);
+      console.log(postResult);
+    } catch (error) {
+      console.log(error)
+    }
     console.log(shows[Number(button.dataset.id)]);
   });
 };
