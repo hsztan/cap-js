@@ -3,8 +3,6 @@ import getShows from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
 import { commentButtonClick } from './helpers-api-dom';
 
-const mainContainer = document.querySelector('main');
-
 const setShows = async () => {
   const allShows = await getShows(showEndpoints.shows, [1, 5, 7, 3, 6, 9]);
   shows.push(...allShows);
@@ -31,6 +29,7 @@ export const displayTVShows = async () => {
         </figcaption>
         <button class="btn" data-id="${i}" type="button">Comments</button>
     `;
+    const mainContainer = document.querySelector('main');
     mainContainer.appendChild(articleElem);
   });
   const buttons = Array.from(document.querySelectorAll('.btn'));
