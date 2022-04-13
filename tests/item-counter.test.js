@@ -1,5 +1,5 @@
-// import { shows, showEndpoints } from '../src/modules/globals';
-// const { displayItemsCount } = require('../src/modules/api-dom');
+import { shows, showEndpoints } from '../src/modules/globals';
+import { displayItemsCount } from '../src/modules/api-dom';
 
 describe('displayItemsCount', () => {
   it('Displays the amount of objects fetched from the API', () => {

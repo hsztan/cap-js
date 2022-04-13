@@ -1,6 +1,4 @@
-import {
-  shows, likes, showEndpoints, involvementEndpoints,
-} from './globals';
+import { shows, likes, showEndpoints, involvementEndpoints } from './globals';
 import { getShows } from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
 import { commentButtonClick } from './helpers-api-dom';
@@ -68,6 +66,7 @@ const createLikes = async () => {
 export const displayItemsCount = () => {
   const itemCount = shows.length;
   document.getElementById('shows-counter').innerText = `(${itemCount})`;
+  return itemCount;
 };
 
 export default async () => {

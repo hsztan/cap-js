@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hsztan/cap-js#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
+    "babel": "^6.23.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.5.1",
     "css-loader": "^6.7.1",
