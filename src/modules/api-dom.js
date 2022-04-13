@@ -3,7 +3,7 @@ import {
 } from './globals';
 import { getShows } from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
-
+import { commentButtonClick } from './helpers-api-dom'
 const mainContainer = document.querySelector('main');
 
 const setShows = async () => {
@@ -34,6 +34,8 @@ const displayTVShows = async () => {
     `;
     mainContainer.appendChild(articleElem);
   });
+  const buttons = Array.from(document.querySelectorAll('.btn'));
+  buttons.forEach(button => commentButtonClick(button));
 };
 
 const displayLikes = async () => {
