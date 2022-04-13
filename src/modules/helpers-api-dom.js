@@ -13,11 +13,13 @@ export const commentButtonClick = button => {
     const movieTitle = document.getElementById('movie-cover').querySelector('.caption');
     movieTitle.textContent = show.name;
     const details = document.getElementById('detail').querySelectorAll('ul');
-    show.genres.forEach(genre => {
+    details[0].innerHTML=`<li><h3>Genres</h3></li>`;
+    details[1].innerHTML=`<li><h3>Country</h3></li>`;
+    show.genres.slice(-5).forEach(genre => {
       const li = `<li><p>${genre}</p></li>`;
       details[0].insertAdjacentHTML('beforeend', li);
     });
-    Object.values(show.network.country).forEach(country => {
+    Object.values(show.network.country).slice(-5).forEach(country => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     })
