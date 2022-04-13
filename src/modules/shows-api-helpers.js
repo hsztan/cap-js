@@ -1,9 +1,7 @@
 export const getShows = async (endpoint, showsIDs) => {
   let data;
   try {
-
     const promises = [];
-
     const fetches = [];
     for (let i = 0; i < showsIDs.length; i += 1) {
       const url = `${endpoint}/${showsIDs[i]}`;
