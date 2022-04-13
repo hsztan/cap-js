@@ -1,4 +1,5 @@
 import { shows } from './globals';
+
 export const commentButtonClick = button => {
   button.addEventListener('click', e => {
     const show = shows[Number(button.dataset.id)];

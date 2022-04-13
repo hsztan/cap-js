@@ -64,11 +64,17 @@ const createLikes = async () => {
   });
 };
 
+export const displayItemsCount = () => {
+  const itemCount = shows.length;
+  document.getElementById('shows-counter').innerText = `(${itemCount})`;
+};
+
 export default async () => {
   try {
     await displayTVShows();
     displayLikes();
     createLikes();
+    displayItemsCount();
   } catch (error) {
     return error.message;
   }
