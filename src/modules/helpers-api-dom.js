@@ -30,6 +30,14 @@ export const commentButtonClick = (button) => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     });
+    commentFrom.addEventListener('submit', (e) => {
+      e.preventDefault();
+      postMovieComment({
+        "item_id": "3",
+        "username": "Tadesse",
+        "comment": "getting in-touch"
+      });
+    });
     console.log(shows[Number(button.dataset.id)]);
   });
 };
