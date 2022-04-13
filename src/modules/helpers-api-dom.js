@@ -13,9 +13,6 @@ export const commentButtonClick = button => {
     const movieTitle = document.getElementById('movie-cover').querySelector('.caption');
     movieTitle.textContent = show.name;
     const details = document.getElementById('detail').querySelectorAll('ul');
-
-    details[0].innerHTML = ``;
-    details[1].innerHTML = ``;
     show.genres.forEach(genre => {
       const li = `<li><p>${genre}</p></li>`;
       details[0].insertAdjacentHTML('beforeend', li);
@@ -24,7 +21,6 @@ export const commentButtonClick = button => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     })
-    // .innerHTML = ;
     console.log(shows[Number(button.dataset.id)]);
   });
 }

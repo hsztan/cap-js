@@ -71,8 +71,7 @@ footer p {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.747);
+  background: rgb(255, 255, 255);
 }
 
 #comment-container {
@@ -92,7 +91,10 @@ footer p {
 }
 
 #movie-cover img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 30vh;
+  margin: auto;
+  display: block;
 }
 
 #movie-cover .caption {
