@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export const getShows = async (endpoint, showsIDs) => {
   let data;
   try {
@@ -15,7 +16,6 @@ export const getShows = async (endpoint, showsIDs) => {
   } catch (error) {
     return error.message;
   }
+  console.log(data);
   return data;
 };
-
-export const hello = 'hwello';
