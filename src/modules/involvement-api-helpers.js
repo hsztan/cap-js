@@ -9,10 +9,18 @@ export const getLikes = async (endpoint) => {
   return data;
 };
 
-// export const getComments = async (id) => {
-//   try {
-//   } catch (error) {}
-// };
+export const getComments = async (endPoint, itemId) => {
+  console.log(endPoint);
+  try {
+    const url = `${endPoint}?item_id=${itemId}`;
+    console.log(url);
+    const comments = await fetch(url);
+    return await comments.json();
+  } catch (error) {
+    return [];
+  }
+};
+
 
 export const postLike = async (endpoint, id) => {
   let response;
@@ -32,7 +40,19 @@ export const postLike = async (endpoint, id) => {
   return response.ok;
 };
 
-// export const postComment = async (id) => {
-//   try {
-//   } catch (error) {}
-// };
+export const postComment = async (endPoint, data) => {
+  // console.log(data);
+  try {
+    const result = await fetch(endPoint, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(result.text());
+  } catch (error) {
+    return error.message;
+  }
+};
+

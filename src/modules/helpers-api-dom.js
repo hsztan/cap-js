@@ -1,10 +1,16 @@
 import { shows } from './globals';
+import { involvementEndpoints } from './globals'
+import { getComments, postComment } from './involvement-api-helpers'
+
+const getMovieComment = async movieId => await getComments(involvementEndpoints.comments, movieId);
+const postMovieComment = async data => await postComment(involvementEndpoints.comments, data);
 
 export const commentButtonClick = (button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', async () => {
     const show = shows[Number(button.dataset.id)];
     const commentContainer = document.getElementById('comment-popup');
     const closePopup = document.getElementById('close-popup');
+    const commentFrom = commentContainer.querySelector('form');
     commentContainer.classList.toggle('hide', false);
     closePopup.addEventListener('click', () => {
       commentContainer.classList.toggle('hide', true);
