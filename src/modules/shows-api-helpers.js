@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export const getShows = async (endpoint, showsIDs) => {
+export default async (endpoint, showsIDs) => {
   let data;
   try {
     const promises = [];
@@ -16,6 +16,5 @@ export const getShows = async (endpoint, showsIDs) => {
   } catch (error) {
     return error.message;
   }
-  console.log(data);
   return data;
 };

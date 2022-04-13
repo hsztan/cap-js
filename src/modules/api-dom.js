@@ -1,5 +1,5 @@
 import { shows, likes, showEndpoints, involvementEndpoints } from './globals';
-import { getShows } from './shows-api-helpers';
+import getShows from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
 import { commentButtonClick } from './helpers-api-dom';
 
@@ -10,7 +10,7 @@ const setShows = async () => {
   shows.push(...allShows);
 };
 
-const displayTVShows = async () => {
+export const displayTVShows = async () => {
   await setShows();
   // create artcile element
   shows.forEach((show, i) => {
