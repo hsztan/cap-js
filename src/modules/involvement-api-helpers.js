@@ -1,25 +1,38 @@
-export const getLikes = async (id) => {
+export const getLikes = async (endpoint) => {
+  let data;
   try {
-  } catch (error) {}
-};
-
-export const getComments = async (endPoint, appId, itemId) => {
-  try {
-    const comments=await fetch(`${endPoint}/apps/${appId}/comments?item_id=item1`);
-    return await comments.json();
+    const response = await fetch(endpoint);
+    data = await response.json();
   } catch (error) {
-    return [];
+    return error.message;
   }
+  return data;
 };
 
-export const postLike = async (id) => {
+// export const getComments = async (id) => {
+//   try {
+//   } catch (error) {}
+// };
+
+export const postLike = async (endpoint, id) => {
+  let response;
   try {
-  } catch (error) {}
+    response = await fetch(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  } catch (error) {
+    return error.message;
+  }
+  return response.ok;
 };
 
-export const postComment = async (id) => {
-  try {
-    const result=await fetch(`${endPoint}/apps/${appId}/comments/`);
-    console.log(result.text());
-  } catch (error) {}
-};
+// export const postComment = async (id) => {
+//   try {
+//   } catch (error) {}
+// };

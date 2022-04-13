@@ -1,4 +1,4 @@
 import './index.css';
-import { displayTVShows } from './modules/api-dom';
+import startApp from './modules/api-dom';
 
-displayTVShows();
+startApp();
