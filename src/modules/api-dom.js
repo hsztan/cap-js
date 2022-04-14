@@ -34,8 +34,6 @@ export const displayTVShows = async () => {
     const mainContainer = document.querySelector('main');
     mainContainer.appendChild(articleElem);
   });
-  const buttons = Array.from(document.querySelectorAll('.btn'));
-  buttons.forEach((button) => commentButtonClick(button));
 };
 
 const displayLikes = async () => {
@@ -64,6 +62,11 @@ const createLikes = async () => {
   });
 };
 
+export const setCommentsPopup = () => {
+  const buttons = Array.from(document.querySelectorAll('.btn'));
+  buttons.forEach((button) => commentButtonClick(button));
+};
+
 export const displayItemsCount = () => {
   const itemCount = shows.length;
   document.getElementById('shows-counter').innerText = `(${itemCount})`;
@@ -74,6 +77,7 @@ export default async () => {
   try {
     await displayTVShows();
     displayLikes();
+    setCommentsPopup();
     createLikes();
     displayItemsCount();
   } catch (error) {
