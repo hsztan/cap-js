@@ -40,18 +40,14 @@ export const commentButtonClick = (button) => {
       postResult.forEach((comment) => {
         commentList.insertAdjacentHTML('beforeend', `<p>${comment.username}: ${comment.comment}</p>`);
       });
-      console.log(postResult);
     } catch (error) {
       commentList.insertAdjacentHTML('beforeend', '<p id="simple-errore">Ther are no comments!</p>');
     }
 
     const addNewComment = (event) => {
       event.preventDefault();
-      console.log(event);
       const name = event.currentTarget.querySelector('input');
       const message = event.currentTarget.querySelector('textarea');
-      console.log('name is :', name.value);
-      console.log('message is :', message.value);
       postMovieComment({
         item_id: show.id,
         username: name.value,
@@ -73,7 +69,6 @@ export const commentButtonClick = (button) => {
       commentContainer.classList.toggle('hide', true);
       commentFrom.removeEventListener('submit', addNewComment);
     });
-    console.log(shows[Number(button.dataset.id)]);
   });
 };
 

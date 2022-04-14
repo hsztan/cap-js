@@ -10,10 +10,8 @@ export const getLikes = async (endpoint) => {
 };
 
 export const getComments = async (endPoint, itemId) => {
-  console.log(endPoint);
   try {
     const url = `${endPoint}?item_id=${itemId}`;
-    console.log(url);
     const comments = await fetch(url);
     return await comments.json();
   } catch (error) {
@@ -40,7 +38,6 @@ export const postLike = async (endpoint, id) => {
 };
 
 export const postComment = async (endPoint, data) => {
-  // console.log(data);
   try {
     await fetch(endPoint, {
       method: 'POST',
