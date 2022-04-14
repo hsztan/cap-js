@@ -21,7 +21,6 @@ export const getComments = async (endPoint, itemId) => {
   }
 };
 
-
 export const postLike = async (endpoint, id) => {
   let response;
   try {
@@ -43,16 +42,15 @@ export const postLike = async (endpoint, id) => {
 export const postComment = async (endPoint, data) => {
   // console.log(data);
   try {
-    const result = await fetch(endPoint, {
-      method: "POST",
+    await fetch(endPoint, {
+      method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    console.log(result.text());
+    return true;
   } catch (error) {
     return error.message;
   }
 };
-
