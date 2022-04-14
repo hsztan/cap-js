@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Anek Tamil', sans-serif;
+}
+
+ul {
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#header nav {
+  margin: 3% 5%;
+  display: flex;
+}
+
+#header nav ul {
+  display: flex;
+  gap: 5%;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 70%;
+}
+
+#header nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin-right: 10%;
+}
+
+.counter {
+  padding: 0 3px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+footer {
+  position: absolute;
+  width: 100vw;
+}
+
+footer hr {
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+footer p {
+  font-size: 0.8rem;
+  padding: 1.3rem;
+}
+
+#comment-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+}
+
+#comment-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 3% 8%;
+  gap: 2vh;
+  background: white;
+}
+
+#movie-cover {
+  width: 60%;
+}
+
+#movie-cover img {
+  max-width: 100%;
+  max-height: 30vh;
+  margin: auto;
+  display: block;
+}
+
+#movie-cover .caption {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+#detail {
+  display: flex;
+  gap: 5%;
+}
+
+#detail ul li {
+  min-width: max-content;
+}
+
+#comment-list {
+  margin: 2vh 0;
+}
+
+#comment-list h1 {
+  text-align: center;
+  margin: 2vh 0;
+}
+
+#comment-container form fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  text-align: center;
+  align-items: flex-start;
+}
+
+#comment-container form legend {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#comment-container form input {
+  font-size: 1.1rem;
+}
+
+#comment-container form button {
+  padding: 5px 10px;
+}
+
+#close-popup {
+  width: 5vw;
+  height: 5vw;
+  background-image: url('./images/icons/close.svg');
+  position: absolute;
+  top: 2%;
+  left: 90%;
+}
+
+/* Main card styles */
+
+.btn {
+  width: 100px;
+}
+
+main {
+  margin: 2rem 0;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 1rem;
+  width: 100vw;
+  height: 100%;
+  min-height: 70vh;
+}
+
+.show {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.show .show-img {
+  width: 100px;
+}
+
+figcaption {
+  display: flex;
+  text-align: center;
+}
+
+figcaption .likes {
+  font-size: 0.8rem;
+}
+
+.hide {
+  display: none;
+}
+
+#simple-errore {
+  color: red;
+  font-size: 1.2rem;
+}
