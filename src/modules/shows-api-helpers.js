@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export default async (endpoint, showsIDs) => {
   let data;
   try {

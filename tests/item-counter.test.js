@@ -1,4 +1,3 @@
-// import getShows from '../src/modules/shows-api-helpers';
 import * as fs from 'fs';
 import mockGetShows from '../src/modules/shows-api-helpers';
 import mockData from './mock-data';
