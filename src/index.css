@@ -54,7 +54,6 @@ a:hover {
 
 footer {
   position: absolute;
-  top: minmax(100vh,auto);
   width: 100vw;
 }
 
