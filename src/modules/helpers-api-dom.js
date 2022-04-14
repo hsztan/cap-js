@@ -30,15 +30,22 @@ export const commentButtonClick = (button) => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     });
-    try {
       const commentList = commentContainer.querySelector('#comment-list');
+    try {
       const postResult = await getMovieComment(show.id);
       commentList.innerHTML=`<h1>comment <span>(${postResult.length})</span></h1>`;
+      if(postResult.length===0)
+      commentList.insertAdjacentHTML('beforeend','<p>Ther are no comments sofar</p>');
+      else {
+        postResult.forEach(comment=>{
+          commentList.insertAdjacentHTML('beforeend',`<p>${comment.username}: ${comment.comment}</p>`);
+        });
+      }
       // <p>03/11/2021 Alex: I'd love to buy it!</p>
       // <p>03/11/2021 Mia: I love</p>
       console.log(postResult);
     } catch (error) {
-      return ['no failed to fetch comment']
+      commentList.insertAdjacentHTML('beforeend',`<p>fail to fetch comments</p>`);
     }
     commentFrom.addEventListener('submit', (e) => {
       e.preventDefault();
