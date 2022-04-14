@@ -6,7 +6,6 @@ const postMovieComment = async (data) => postComment(involvementEndpoints.commen
 export const getCommentCount = async (showId) => {
   try {
     const postResult = await getMovieComment(showId);
-    console.log(postResult.length);
     return postResult.length;
   } catch (error) {
     return 0;
