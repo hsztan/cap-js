@@ -1,13 +1,17 @@
 import { shows, involvementEndpoints } from './globals';
 
-import { getComments, postComment } from './involvement-api-helpers';
+import { getMovieComment, postComment } from './involvement-api-helpers';
 
-const getMovieComment = async (movieId) => {
-  const movies = await getComments(involvementEndpoints.comments, movieId);
-  return movies;
-};
 const postMovieComment = async (data) => postComment(involvementEndpoints.comments, data);
-
+export const getCommentCount = async (showId) => {
+  try {
+    const postResult = await getMovieComment(showId);
+    console.log(postResult.length);
+    return postResult.length;
+  } catch (error) {
+    return 0;
+  }
+};
 export const commentButtonClick = (button) => {
   button.addEventListener('click', async () => {
     const show = shows[Number(button.dataset.id)];

@@ -1,3 +1,5 @@
+import { involvementEndpoints } from './globals';
+
 export const getLikes = async (endpoint) => {
   let data;
   try {
@@ -50,4 +52,9 @@ export const postComment = async (endPoint, data) => {
   } catch (error) {
     return error.message;
   }
+};
+
+export const getMovieComment = async (movieId) => {
+  const movies = await getComments(involvementEndpoints.comments, movieId);
+  return movies;
 };
