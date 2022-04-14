@@ -32,10 +32,14 @@ export const commentButtonClick = (button) => {
     });
     commentFrom.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name=commentFrom.querySelector('input').value;
+      const message=commentFrom.querySelector('textarea').value;
+      console.log(name);
+      console.log(show.id);
       postMovieComment({
-        "item_id": "3",
-        "username": "Tadesse",
-        "comment": "getting in-touch"
+        "item_id": show.id,
+        "username": name,
+        "comment": message
       });
     });
     try {
