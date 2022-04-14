@@ -56,6 +56,7 @@ export const commentButtonClick = (button) => {
       });
       commentCounter+=1;
       commentList.insertAdjacentHTML('beforeend',`<p>${name.value}: ${message.value}</p>`);
+      commentList.firstChild.innerHTML=`<h1>comment <span>(${commentCounter})</span></h1>`;
       name.value='';
       message.value='';
     });
