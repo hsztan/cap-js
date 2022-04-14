@@ -1,4 +1,5 @@
-export const getShows = async (endpoint, showsIDs) => {
+/* eslint-disable import/prefer-default-export */
+export default async (endpoint, showsIDs) => {
   let data;
   try {
     const promises = [];
@@ -17,5 +18,3 @@ export const getShows = async (endpoint, showsIDs) => {
   }
   return data;
 };
-
-export const hello = 'hwello';

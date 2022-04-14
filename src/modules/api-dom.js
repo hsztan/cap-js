@@ -1,18 +1,16 @@
 import {
   shows, likes, showEndpoints, involvementEndpoints,
 } from './globals';
-import { getShows } from './shows-api-helpers';
+import getShows from './shows-api-helpers';
 import { getLikes, postLike } from './involvement-api-helpers';
 import { commentButtonClick } from './helpers-api-dom';
-
-const mainContainer = document.querySelector('main');
 
 const setShows = async () => {
   const allShows = await getShows(showEndpoints.shows, [1, 5, 7, 3, 6, 9]);
   shows.push(...allShows);
 };
 
-const displayTVShows = async () => {
+export const displayTVShows = async () => {
   await setShows();
   // create artcile element
   shows.forEach((show, i) => {
@@ -33,6 +31,7 @@ const displayTVShows = async () => {
         </figcaption>
         <button class="btn" data-id="${i}" type="button">Comments</button>
     `;
+    const mainContainer = document.querySelector('main');
     mainContainer.appendChild(articleElem);
   });
   const buttons = Array.from(document.querySelectorAll('.btn'));
@@ -68,6 +67,7 @@ const createLikes = async () => {
 export const displayItemsCount = () => {
   const itemCount = shows.length;
   document.getElementById('shows-counter').innerText = `(${itemCount})`;
+  return itemCount;
 };
 
 export default async () => {
