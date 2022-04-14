@@ -31,9 +31,11 @@ export const commentButtonClick = (button) => {
       details[1].insertAdjacentHTML('beforeend', li);
     });
       const commentList = commentContainer.querySelector('#comment-list');
+      let commentCounter=0;
     try {
       const postResult = await getMovieComment(show.id);
-      commentList.innerHTML=`<h1>comment <span>(${postResult.length||0})</span></h1>`;
+      commentCounter=postResult.length||0;
+      commentList.innerHTML=`<h1>comment <span>(${commentCounter})</span></h1>`;
         postResult.forEach(comment=>{
           commentList.insertAdjacentHTML('beforeend',`<p>${comment.username}: ${comment.comment}</p>`);
         });
@@ -52,6 +54,8 @@ export const commentButtonClick = (button) => {
         "username": name.value,
         "comment": message.value
       });
+      commentCounter+=1;
+      commentList.insertAdjacentHTML('beforeend',`<p>${name.value}: ${message.value}</p>`);
       name.value='';
       message.value='';
     });
