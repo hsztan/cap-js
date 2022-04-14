@@ -33,31 +33,27 @@ export const commentButtonClick = (button) => {
       const commentList = commentContainer.querySelector('#comment-list');
     try {
       const postResult = await getMovieComment(show.id);
-      commentList.innerHTML=`<h1>comment <span>(${postResult.length})</span></h1>`;
-      if(postResult.length===0)
-      commentList.insertAdjacentHTML('beforeend','<p>Ther are no comments sofar</p>');
-      else {
+      commentList.innerHTML=`<h1>comment <span>(${postResult.length||0})</span></h1>`;
         postResult.forEach(comment=>{
           commentList.insertAdjacentHTML('beforeend',`<p>${comment.username}: ${comment.comment}</p>`);
         });
-      }
-      // <p>03/11/2021 Alex: I'd love to buy it!</p>
-      // <p>03/11/2021 Mia: I love</p>
       console.log(postResult);
-    } catch (error) {
-      commentList.insertAdjacentHTML('beforeend',`<p>fail to fetch comments</p>`);
+    } catch (error) {     
+      commentList.insertAdjacentHTML('beforeend',`<p>ther are no comments</p>`);
     }
     commentFrom.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name=commentFrom.querySelector('input').value;
-      const message=commentFrom.querySelector('textarea').value;
+      const name=commentFrom.querySelector('input');
+      const message=commentFrom.querySelector('textarea');
       console.log(name);
       console.log(show.id);
       postMovieComment({
         "item_id": show.id,
-        "username": name,
-        "comment": message
+        "username": name.value,
+        "comment": message.value
       });
+      name.value='';
+      message.value='';
     });
     console.log(shows[Number(button.dataset.id)]);
   });
