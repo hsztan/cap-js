@@ -3,7 +3,7 @@ import { shows, involvementEndpoints } from './globals';
 import { getMovieComment, postComment } from './involvement-api-helpers';
 
 const postMovieComment = async (data) => postComment(involvementEndpoints.comments, data);
-export const getCommentCount = async showId => {
+export const getCommentCount = async (showId) => {
   try {
     const postResult = await getMovieComment(showId);
     console.log(postResult.length);
@@ -11,7 +11,7 @@ export const getCommentCount = async showId => {
   } catch (error) {
     return 0;
   }
-}
+};
 export const commentButtonClick = (button) => {
   button.addEventListener('click', async () => {
     const show = shows[Number(button.dataset.id)];
@@ -48,7 +48,7 @@ export const commentButtonClick = (button) => {
       commentList.insertAdjacentHTML('beforeend', '<p id="simple-errore">Ther are no comments!</p>');
     }
 
-    const addNewComment = async (event) => {
+    const addNewComment = (event) => {
       event.preventDefault();
       const name = event.currentTarget.querySelector('input');
       const message = event.currentTarget.querySelector('textarea');
@@ -57,7 +57,7 @@ export const commentButtonClick = (button) => {
         username: name.value,
         comment: message.value,
       });
-      commentCounter = await getCommentCount(show.id) + 1;
+      commentCounter += 1;
       const commentList = commentContainer.querySelector('#comment-list');
       commentList.insertAdjacentHTML('beforeend', `<p>${name.value}: ${message.value}</p>`);
       commentList.firstChild.innerHTML = `<h1>comment <span>(${commentCounter})</span></h1>`;
