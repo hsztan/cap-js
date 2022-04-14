@@ -8,7 +8,6 @@ const getMovieComment = async (movieId) => {
 };
 const postMovieComment = async (data) => postComment(involvementEndpoints.comments, data);
 
-
 export const commentButtonClick = (button) => {
   button.addEventListener('click', async () => {
     const show = shows[Number(button.dataset.id)];
@@ -16,8 +15,6 @@ export const commentButtonClick = (button) => {
     const closePopup = document.getElementById('close-popup');
     const commentFrom = commentContainer.querySelector('form');
     commentContainer.classList.toggle('hide', false);
-
-
 
     const movieCover = document.getElementById('movie-cover').querySelector('img');
     movieCover.src = show.image.medium;
@@ -45,36 +42,36 @@ export const commentButtonClick = (button) => {
       });
       console.log(postResult);
     } catch (error) {
-      commentList.insertAdjacentHTML('beforeend', '<p id="simple-errore">ther are no comments</p>');
+      commentList.insertAdjacentHTML('beforeend', '<p id="simple-errore">Ther are no comments!</p>');
     }
 
-    const addNewComment=(event) => {
+    const addNewComment = (event) => {
       event.preventDefault();
       console.log(event);
       const name = event.currentTarget.querySelector('input');
       const message = event.currentTarget.querySelector('textarea');
-      console.log("name is :" ,name.value);
-      console.log("message is :" ,message.value);
+      console.log('name is :', name.value);
+      console.log('message is :', message.value);
       postMovieComment({
         item_id: show.id,
         username: name.value,
         comment: message.value,
       });
-      commentCounter +=1;
+      commentCounter += 1;
       const commentList = commentContainer.querySelector('#comment-list');
       commentList.insertAdjacentHTML('beforeend', `<p>${name.value}: ${message.value}</p>`);
       commentList.firstChild.innerHTML = `<h1>comment <span>(${commentCounter})</span></h1>`;
-      commentList.querySelector('#simple-errore')&&commentList.removeChild(commentList.querySelector('#simple-errore'));
+      if (commentList.querySelector('#simple-errore')) commentList.removeChild(commentList.querySelector('#simple-errore'));
       name.value = '';
       message.value = '';
       return true;
-    }
+    };
 
     commentFrom.addEventListener('submit', addNewComment);
 
     closePopup.addEventListener('click', () => {
       commentContainer.classList.toggle('hide', true);
-      commentFrom.removeEventListener('submit',addNewComment);
+      commentFrom.removeEventListener('submit', addNewComment);
     });
     console.log(shows[Number(button.dataset.id)]);
   });

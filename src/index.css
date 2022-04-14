@@ -192,3 +192,8 @@ figcaption .likes {
 .hide {
   display: none;
 }
+
+#simple-errore {
+  color: red;
+  font-size: 1.2rem;
+}
