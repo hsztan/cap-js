@@ -111,11 +111,11 @@ footer p {
   min-width: max-content;
 }
 
-#comment {
+#comment-list {
   margin: 2vh 0;
 }
 
-#comment h1 {
+#comment-list h1 {
   text-align: center;
   margin: 2vh 0;
 }
@@ -191,4 +191,9 @@ figcaption .likes {
 
 .hide {
   display: none;
+}
+
+#simple-errore {
+  color: red;
+  font-size: 1.2rem;
 }

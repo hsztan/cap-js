@@ -58,22 +58,19 @@
           <ul>
           </ul>
         </section>
-        <section id="comment">
-          <h1>comment <span>(0)</span></h1>
-          <p>03/11/2021 Alex: I'd love to buy it!</p>
-          <p>03/11/2021 Mia: I love</p>
+        <section id="comment-list">
         </section>
         <form action="#" method="post">
           <fieldset>
             <legend>Add a comment</legend>
-            <input type="text" id="name" name="name" placeholder="Your name" />
+            <input type="text" id="name" name="name" placeholder="Your name" required/>
             <textarea
               id="comment-message"
               name="comment"
               placeholder="Your insight"
               rows="4"
-            >
-            </textarea>
+              required
+            ></textarea>
             <button type="submit" value="comment">comment</button>
           </fieldset>
         </form>

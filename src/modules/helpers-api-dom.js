@@ -1,14 +1,21 @@
-import { shows } from './globals';
+import { shows, involvementEndpoints } from './globals';
+
+import { getComments, postComment } from './involvement-api-helpers';
+
+const getMovieComment = async (movieId) => {
+  const movies = await getComments(involvementEndpoints.comments, movieId);
+  return movies;
+};
+const postMovieComment = async (data) => postComment(involvementEndpoints.comments, data);
 
 export const commentButtonClick = (button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', async () => {
     const show = shows[Number(button.dataset.id)];
     const commentContainer = document.getElementById('comment-popup');
     const closePopup = document.getElementById('close-popup');
+    const commentFrom = commentContainer.querySelector('form');
     commentContainer.classList.toggle('hide', false);
-    closePopup.addEventListener('click', () => {
-      commentContainer.classList.toggle('hide', true);
-    });
+
     const movieCover = document.getElementById('movie-cover').querySelector('img');
     movieCover.src = show.image.medium;
     const movieTitle = document.getElementById('movie-cover').querySelector('.caption');
@@ -24,7 +31,44 @@ export const commentButtonClick = (button) => {
       const li = `<li><p>${country}</p></li>`;
       details[1].insertAdjacentHTML('beforeend', li);
     });
-    console.log(shows[Number(button.dataset.id)]);
+    const commentList = commentContainer.querySelector('#comment-list');
+    let commentCounter = 0;
+    try {
+      const postResult = await getMovieComment(show.id);
+      commentCounter = postResult.length || 0;
+      commentList.innerHTML = `<h1>comment <span>(${commentCounter})</span></h1>`;
+      postResult.forEach((comment) => {
+        commentList.insertAdjacentHTML('beforeend', `<p>${comment.username}: ${comment.comment}</p>`);
+      });
+    } catch (error) {
+      commentList.insertAdjacentHTML('beforeend', '<p id="simple-errore">Ther are no comments!</p>');
+    }
+
+    const addNewComment = (event) => {
+      event.preventDefault();
+      const name = event.currentTarget.querySelector('input');
+      const message = event.currentTarget.querySelector('textarea');
+      postMovieComment({
+        item_id: show.id,
+        username: name.value,
+        comment: message.value,
+      });
+      commentCounter += 1;
+      const commentList = commentContainer.querySelector('#comment-list');
+      commentList.insertAdjacentHTML('beforeend', `<p>${name.value}: ${message.value}</p>`);
+      commentList.firstChild.innerHTML = `<h1>comment <span>(${commentCounter})</span></h1>`;
+      if (commentList.querySelector('#simple-errore')) commentList.removeChild(commentList.querySelector('#simple-errore'));
+      name.value = '';
+      message.value = '';
+      return true;
+    };
+
+    commentFrom.addEventListener('submit', addNewComment);
+
+    closePopup.addEventListener('click', () => {
+      commentContainer.classList.toggle('hide', true);
+      commentFrom.removeEventListener('submit', addNewComment);
+    });
   });
 };
 
